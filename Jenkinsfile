@@ -6,7 +6,8 @@ pipeline {
             steps { 
                 sh 'ls -la'
                 sh 'cd RallyAutomation'
-                sh 'chmod +x startpipeline.sh'
+                sh 'ls -la'
+                sh 'chmod +x startPipeline.sh'
                 sh 'python -v'
             }
         }

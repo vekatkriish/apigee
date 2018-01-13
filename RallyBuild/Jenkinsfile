@@ -19,7 +19,11 @@ pipeline {
                 dir ('RallyBuild') {
                     sh 'python updateTask.py $fmtId $notes $BUILD_URL'
                 }
+                mail to: venkat143145@gmail.com, subject: 'The ticket was updated'
             }
+        }
+        failure {
+            echo 'failed build'
         }
     }
 }

@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout_script') {
+            steps {
+                git changelog: false, credentialsId: '46d318e0-7de7-49ab-86ae-1669225823c1', poll: false, url: 'https://github.com/vekatkriish/apigee.git'
+            }
+        }
+        stage('resolve_task') {
+            steps {
+                echo 'Resolving'
+            }
+        }
+    }
+    post {
+        sucesses {
+            script{
+                dir ('RallyBuild') {
+                    sh 'python updateTask.py $fmtId $notes $BUILD_URL'
+                }
+            }
+        }
+        failure {
+            //mail to: team@example.com, subject: 'The Pipeline failed :('
+        }
+    }
+}

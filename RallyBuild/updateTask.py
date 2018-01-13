@@ -13,15 +13,15 @@ args = sys.argv
 proj = rally.getProject()
 
 taskID = sys.argv[1]
-notes = sys.argv[2]
+notes = sys.argv[2] + sys.argv[3]
 
 task_data = {   "FormattedID" : taskID,
 				"State" : 'Completed',
                 "Notes"       : notes
                }
 try:
-	response = rally.get('Task', fetch="Notes,Description", query='FormattedID = '+taskID)
-	task_data['Notes'] = response.next().Notes+ '\n' + task_data['Notes']
+	#response = rally.get('Task', fetch="Notes,Description", query='FormattedID = '+taskID)
+	#task_data['Notes'] = response.next().Notes+ '\n' + task_data['Notes']
 	task = rally.update('Task', task_data)
 except Exception as details:
     sys.stderr.write('ERROR: %s \n' % details)

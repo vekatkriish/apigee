@@ -21,7 +21,7 @@ pipeline {
                 dir ('RallyBuild') {
                     sh 'python updateTask.py $fmtId $notes $BUILD_URL'
                 }
-                sh env.notes
+                echo env.notes
             script{
                 mail (to: env.notes,
                      subject: "Job '{$JOB_NAME}' ({$BUILD_NUMBER}) is sucesses",

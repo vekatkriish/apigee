@@ -23,7 +23,8 @@ pipeline {
                 }
                 echo env.notes
             script{
-                mail (to: env.notes,
+
+                mail (to: env.notes.split(';')[0].trim(),
                      subject: "Job {$JOB_NAME} {$BUILD_NUMBER} is sucesses",
                     body: "if you want to check the status please see to {$BUILD_URL}.");
             }

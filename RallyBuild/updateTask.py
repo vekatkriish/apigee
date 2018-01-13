@@ -13,7 +13,7 @@ args = sys.argv
 proj = rally.getProject()
 
 taskID = sys.argv[1]
-notes = sys.argv[2] + sys.argv[3]
+notes = sys.argv[2] + '   ;build-url: ' + sys.argv[3]
 
 task_data = {   "FormattedID" : taskID,
 				"State" : 'Completed',

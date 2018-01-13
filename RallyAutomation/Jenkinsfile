@@ -1,0 +1,17 @@
+pipeline {
+    agent any 
+
+    stages {
+
+            steps { 
+                dir ('RallyAutomation') {
+                sh 'chmod +x startPipeline.sh'
+                sh 'python -v'
+                sh 'python readTickets.py US10'
+   }
+            }
+        }
+        
+        
+    }
+}

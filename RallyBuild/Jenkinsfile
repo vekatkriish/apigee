@@ -14,15 +14,12 @@ pipeline {
         }
     }
     post {
-        sucesses {
+        success {
             script{
                 dir ('RallyBuild') {
                     sh 'python updateTask.py $fmtId $notes $BUILD_URL'
                 }
             }
-        }
-        failure {
-            //mail to: team@example.com, subject: 'The Pipeline failed :('
         }
     }
 }

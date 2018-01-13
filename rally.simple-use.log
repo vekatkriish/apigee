@@ -1,0 +1,9 @@
+2018-01-13 18:18:25.126 Following entries record Rally REST API interaction via https://rally1.rallydev.com/slm/webservice/v2.0 for user: venkat.kristipati@gmail.com
+2018-01-13 18:18:25.499 GET Task?fetch=ObjectID&query=(FormattedID = "TA1")&workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false&pagesize=500&start=1
+2018-01-13 18:18:25.815 200 Task?fetch=ObjectID&query=(FormattedID%20%3D%20%22TA1%22)&workspace=workspace/189830971492&project=project TotalResultCount 1
+2018-01-13 18:18:25.817 GET https://rally1.rallydev.com/slm/webservice/v2.0/attributedefinition/-10523/AllowedValues?pagesize=500&start=1&workspace=workspace/189830971492&project=project/189830971828
+2018-01-13 18:18:26.165 200 attributedefinition/-10523/AllowedValues?pagesize=500&start=1&workspace=workspace/189830971492&project=project TotalResultCount 0
+2018-01-13 18:18:26.166 POST task/190042677660?key=txM2HFTwTKemBqXehcynhSECqQtJAktZj1nHoK9ondY&workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false
+                            {'Task': {'FormattedID': 'TA1', 'State': 'Completed', 'Notes': 'helloworldhttp://jenkins.com', 'ObjectID': 190042677660}}
+2018-01-13 18:18:26.668 GET Task/190042677660?workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false
+2018-01-13 18:18:27.003 200 Task/190042677660?workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false

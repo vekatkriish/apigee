@@ -10,6 +10,7 @@ pipeline {
         stage('resolve_task') {
             steps {
                 echo 'Resolving'
+                echo 'env.fmtId'
 
             }
         }

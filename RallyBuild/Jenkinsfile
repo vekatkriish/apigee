@@ -10,6 +10,7 @@ pipeline {
         stage('resolve_task') {
             steps {
                 echo 'Resolving'
+
             }
         }
     }
@@ -19,7 +20,12 @@ pipeline {
                 dir ('RallyBuild') {
                     sh 'python updateTask.py $fmtId $notes $BUILD_URL'
                 }
-                mail to: venkat143145@gmail.com, subject: 'The ticket was updated'
+                sh env.notes
+            script{
+                mail (to: env.notes,
+                     subject: "Job '{$JOB_NAME}' ({$BUILD_NUMBER}) is sucesses",
+                    body: "if you want to check the status please see to {$BUILD_URL}.");
+            }
             }
         }
         failure {

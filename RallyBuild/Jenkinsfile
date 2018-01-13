@@ -10,7 +10,7 @@ pipeline {
         stage('resolve_task') {
             steps {
                 echo 'Resolving'
-                echo 'env.fmtId'
+                echo  env.fmtId
 
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                 echo env.notes
             script{
                 mail (to: env.notes,
-                     subject: "Job '{$JOB_NAME}' ({$BUILD_NUMBER}) is sucesses",
+                     subject: "Job {$JOB_NAME} {$BUILD_NUMBER} is sucesses",
                     body: "if you want to check the status please see to {$BUILD_URL}.");
             }
             }

@@ -24,4 +24,4 @@ if not response.errors:
         for task in story.Tasks:
         	if task.State == 'Defined':
         		print task.oid, task.Name, task.Notes, task.Description, task.State, task.FormattedID
-        		os.system("./startPipeline.sh "+'http://localhost:5000/job/Apigee_proj/job/apigee_build/build'+" "+os.environ['runame']+':'+os.environ['rtoken']+" "+task.Description+" "+task.Notes+" "+task.FormattedID)
+        		os.system("./startPipeline.sh "+'http://localhost:8080/job/Apigee_proj/job/apigee_build/build'+" "+os.environ['runame']+':'+os.environ['rtoken']+" "+task.Description+" "+task.Notes+" "+task.FormattedID)

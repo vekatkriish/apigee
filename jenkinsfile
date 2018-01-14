@@ -7,6 +7,7 @@ pipeline {
                    STAGE_NAME = ""
 
                    sh "BRANCH_NAME = git branch"
+                   sh " echo $BRANCH_NAME"
 
                    if (BRANCH_NAME == "master") {
                       deleteDir()

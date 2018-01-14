@@ -22,8 +22,6 @@ pipeline {
                         git push origin master
                      '''
                   }
-                 
-                  )
                }
                else {
                   echo " alread a folder is created"

@@ -27,7 +27,7 @@ pipeline {
                                 ret = sh(script: './gitcommit.sh '+ env.GIT_USERNAME +' '+encoded_password+' '+gitrepo, returnStdout: true).trim()
                                 echo 'Git Commit & Push Status: '+ret
                                 if(ret == 'OK'){
-                                    sh 'git branch apigee-v1'
+                                    sh 'git branch apigee-v2'
                                 }else{
                                     error 'git commit error'
                                 }

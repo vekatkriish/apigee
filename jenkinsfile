@@ -1,33 +1,35 @@
 pipeline {
     agent any
+  stages{
+        stage ("Publish to npm") {
+             steps {
+                script {
+                   STAGE_NAME = "Publish to npm"
 
-    stage ("Publish to npm") {
-         steps {
-            script {
-               STAGE_NAME = "Publish to npm"
+             
+                   if (BRANCH_NAME == "master") {
+                      // Publish to npm and bump the version number for the next release
+                      sh "npm publish"
+                      deleteDir()
+                      sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
+                         sh '''
+                            git clone git@github.com:vekatkriish/apigee.git
+                            cd apigee
+                            mkdir apigee-v1 && touch apigee-v1/.keep
+                            git config --global user.name "vekatkriish"
+                            git config --global user.email venkat.kristipati@gmail.com
+                            git commit -am 'git folder created'
+                            git push origin master
+                         '''
+                      }
+                   }
+                   else {
+                      echo " alread a folder is created"
+                   }
+                }
+             }
+          }
 
-         
-               if (BRANCH_NAME == "master") {
-                  // Publish to npm and bump the version number for the next release
-                  sh "npm publish"
-                  deleteDir()
-                  sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
-                     sh '''
-                        git clone git@github.com:vekatkriish/apigee.git
-                        cd apigee
-                        mkdir apigee-v1 && touch apigee-v1/.keep
-                        git config --global user.name "vekatkriish"
-                        git config --global user.email venkat.kristipati@gmail.com
-                        git commit -am 'git folder created'
-                        git push origin master
-                     '''
-                  }
-               }
-               else {
-                  echo " alread a folder is created"
-               }
-            }
-         }
-      }
+     } 
    }
 

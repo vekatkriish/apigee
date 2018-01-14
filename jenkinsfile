@@ -4,7 +4,9 @@ pipeline {
         stage ("Publish to npm") {
              steps {
                 script {
-                    dir(deploy@2){
+                    def workspace = pwd()
+                    echo ${workspace}
+                    dir(${workspace}){
                            sh "BRANCH_NAME = git branch"
                            sh " echo $BRANCH_NAME"
 

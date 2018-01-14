@@ -4,29 +4,28 @@ pipeline {
         stage ("Publish to npm") {
              steps {
                 script {
-                   STAGE_NAME = ""
+                    dir(apigee){
+                           sh "BRANCH_NAME = git branch"
+                           sh " echo $BRANCH_NAME"
 
-                   sh "BRANCH_NAME = git branch"
-                   sh " echo $BRANCH_NAME"
-
-                   if ($BRANCH_NAME == "master") {
-                      deleteDir()
-                      sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
-                         sh '''
-                            git clone git@github.com:vekatkriish/apigee.git
-                            cd apigee
-                            mkdir apigee-v1 && touch apigee-v1/.keep
-                            git config --global user.name "vekatkriish"
-                            git config --global user.email venkat.kristipati@gmail.com
-                            git commit -am 'git folder created'
-                            git push origin master
-                         '''
-                      }
-                   }
-                   else {
-                      echo " alread a folder is created"
-                   }
-                }
+                           if ($BRANCH_NAME == "master") {
+                              deleteDir()
+                              sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
+                                 sh '''
+                                    git clone git@github.com:vekatkriish/apigee.git
+                                    cd apigee
+                                    mkdir apigee-v1 && touch apigee-v1/.keep
+                                    git config --global user.name "vekatkriish"
+                                    git config --global user.email venkat.kristipati@gmail.com
+                                    git commit -am 'git folder created'
+                                    git push origin master
+                                 '''
+                              }
+                           }
+                           else {
+                              echo " alread a folder is created"
+                           }
+                        }
              }
           }
 

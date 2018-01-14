@@ -20,7 +20,7 @@ pipeline {
                              sh 'git add ${env.folderName}/*'
                              sh 'git commit -m "${env.folderName} folder created"'
                              sh 'git status'
-                             gitrepo = 'github.com/vekatkriish/apigee1.git'
+                             gitrepo = 'github.com/vekatkriish/apigee.git'
                              dir ('RallyBuild') {
                                 sh 'chmod +x gitcommit.sh'
                                 ret = sh(script: './gitcommit.sh '+ env.GIT_USERNAME +' '+encoded_password+' '+gitrepo, returnStdout: true).trim()

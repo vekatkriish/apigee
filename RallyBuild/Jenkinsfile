@@ -10,15 +10,15 @@ pipeline {
         stage('resolve_task') {
             steps {
                 script{
-                    result = sh (script: 'git ls-tree -d --name-only master ${env.folderName}', returnStdout: true).trim()
+                    result = sh (script: 'git ls-tree -d --name-only master ${folderName}', returnStdout: true).trim()
                     if(result == env.folderName){
                         sh 'git branch apigee-v1'
                     }else{
                         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '46d318e0-7de7-49ab-86ae-1669225823c1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
                              String encoded_password = java.net.URLEncoder.encode(env.GIT_PASSWORD, "UTF-8")
-                             sh 'mkdir ${env.folderName} && touch ${env.folderName}/.keep'
-                             sh 'git add ${env.folderName}/*'
-                             sh 'git commit -m "${env.folderName} folder created"'
+                             sh 'mkdir ${folderName} && touch ${folderName}/.keep'
+                             sh 'git add ${folderName}/*'
+                             sh 'git commit -m "${folderName} folder created"'
                              sh 'git status'
                              gitrepo = 'github.com/vekatkriish/apigee.git'
                              dir ('RallyBuild') {

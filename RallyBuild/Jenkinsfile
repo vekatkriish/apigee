@@ -10,6 +10,7 @@ pipeline {
         stage('resolve_task') {
             steps {
                 script{
+                    echo env.folderName+'****'
                     result = sh (script: 'git ls-tree -d --name-only master ${folderName}', returnStdout: true).trim()
                     if(result == env.folderName){
                         sh 'git branch apigee-v1'

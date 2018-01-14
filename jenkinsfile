@@ -9,7 +9,7 @@ pipeline {
                    sh "BRANCH_NAME = git branch"
                    sh " echo $BRANCH_NAME"
 
-                   if (BRANCH_NAME == "master") {
+                   if ($BRANCH_NAME == "master") {
                       deleteDir()
                       sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
                          sh '''

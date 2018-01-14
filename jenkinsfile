@@ -4,7 +4,7 @@ pipeline {
         stage ("Publish to npm") {
              steps {
                 script {
-                    dir(apigee){
+                    dir(deploy@2){
                            sh "BRANCH_NAME = git branch"
                            sh " echo $BRANCH_NAME"
 

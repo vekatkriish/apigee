@@ -4,12 +4,11 @@ pipeline {
         stage ("Publish to npm") {
              steps {
                 script {
-                   STAGE_NAME = "Publish to npm"
+                   STAGE_NAME = ""
 
-             
+                   sh "BRANCH_NAME = git branch"
+
                    if (BRANCH_NAME == "master") {
-                      // Publish to npm and bump the version number for the next release
-                      sh "npm publish"
                       deleteDir()
                       sshagent (credentials: ['a3608c03-82fc-4841-bd96-dd82e8bb8c63']) {
                          sh '''

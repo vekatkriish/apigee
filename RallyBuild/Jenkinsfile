@@ -12,6 +12,7 @@ pipeline {
                 script{
                     echo env.foldername+"***"
                     result = sh (script: 'git ls-tree -d --name-only master ${foldername}', returnStdout: true).trim()
+                    echo result
                     if(result == env.foldername){
                         sh 'git branch ${description}'
                     }else{

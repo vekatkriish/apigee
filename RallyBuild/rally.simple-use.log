@@ -1,0 +1,9 @@
+2018-01-15 19:45:36.707 Following entries record Rally REST API interaction via https://rally1.rallydev.com/slm/webservice/v2.0 for user: venkat.kristipati@gmail.com
+2018-01-15 19:45:37.104 GET Task?fetch=ObjectID&query=(FormattedID = "TA4")&workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false&pagesize=500&start=1
+2018-01-15 19:45:37.482 200 Task?fetch=ObjectID&query=(FormattedID%20%3D%20%22TA4%22)&workspace=workspace/189830971492&project=project TotalResultCount 1
+2018-01-15 19:45:37.484 GET https://rally1.rallydev.com/slm/webservice/v2.0/attributedefinition/-10523/AllowedValues?pagesize=500&start=1&workspace=workspace/189830971492&project=project/189830971828
+2018-01-15 19:45:37.853 200 attributedefinition/-10523/AllowedValues?pagesize=500&start=1&workspace=workspace/189830971492&project=project TotalResultCount 0
+2018-01-15 19:45:37.854 POST task/190532198116?key=np34eF6kSoOw3OladC52qFydPrS0kssmgIFURR0nd0&workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false
+                            {'Task': {'FormattedID': 'TA4', 'State': 'Completed', 'Notes': 'venkat.kristipati@gmail.com   ;build-url: http://localhost:8080/job/Apigee_proj/job/RallyBuild/8/', 'ObjectID': 190532198116}}
+2018-01-15 19:45:38.382 GET Task/190532198116?workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false
+2018-01-15 19:45:39.411 200 Task/190532198116?workspace=workspace/189830971492&project=project/189830971828&projectScopeUp=false&projectScopeDown=false

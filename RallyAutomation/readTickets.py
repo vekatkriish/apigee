@@ -28,5 +28,5 @@ if not response.errors:
         		print branch
         		print foldername
         		print task.oid, task.Name, task.Notes, branch, task.State, task.FormattedID, foldername
-        		initstr = "./startPipeline.sh "+'http://localhost:8080/job/Apigee_proj/job/RallyBuild/build '+os.environ['runame']+':'+os.environ['rtoken']+" "+branch+" "+task.Notes+" "+task.FormattedID+" "+foldername
+        		initstr = "./startPipeline.sh "+'http://localhost:8080/job/Apigee_proj/job/RallyBuild/ '+os.environ['runame']+':'+os.environ['rtoken']+" "+branch+" "+task.Notes+" "+task.FormattedID+" "+foldername
         		os.system(initstr)

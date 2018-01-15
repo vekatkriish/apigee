@@ -23,6 +23,10 @@ if not response.errors:
     for story in response:
         for task in story.Tasks:
         	if task.State == 'Defined':
-        		print task.oid, task.Name, task.Notes, task.Description, task.State, task.FormattedID
-        		initstr = "./startPipeline.sh "+'http://localhost:8080/job/Apigee_proj/job/apigee_build/build '+os.environ['runame']+':'+os.environ['rtoken']+" "+task.Description+" "+task.Notes+" "+task.FormattedID+' apigee_v2'
+        		foldername = (task.Description.split(";")[1]).split(":")[1]
+        		branch = task.Description.split(";")[0].split(":")[1]
+        		print branch
+        		print foldername
+        		print task.oid, task.Name, task.Notes, branch, task.State, task.FormattedID, foldername
+        		initstr = "./startPipeline.sh "+'http://localhost:8080/job/Apigee_proj/job/apigee_build/build '+os.environ['runame']+':'+os.environ['rtoken']+" "+branch+" "+task.Notes+" "+task.FormattedID+" "+foldername
         		os.system(initstr)
